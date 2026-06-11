@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+    <header>
+        <h1>Meu Site</h1>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#cursos">Cursos</a></li>
+                <li><a href="#rodape">Rodapé</a></li>
+            </ul>
+        </nav>
+    </header>
+ 
+    <main>
+        <section id="sobre"></section>
+        <section id="cursos"></section>
+    </main>
+ 
+    <footer id="rodape"></footer>
+ 
+    <script>
+        async function carregarPagina(arquivo, elementoId) {
+            const resposta = await fetch(arquivo);
+            const html = await resposta.text();
+            document.getElementById(elementoId).innerHTML = html;
+        }
+ 
+        carregarPagina('sobre.html', 'sobre');
+        carregarPagina('cursos.html', 'cursos');
+        carregarPagina('rodape.html', 'rodape');
+    </script>
+ 
+</body>
+</html>
